@@ -5,7 +5,7 @@ import connectDB from "./config/connectDB.js";
 import teachersRoutes from "./routes/teachersRoutes.js";
 import studentsRoutes from "./routes/studentsRoutes.js";
 import startApolloServer from "./config/apolloServer.js";
-
+import cookieParser from "cookie-parser"
 
 
 const app = express()
@@ -17,6 +17,7 @@ dotenv.config()
 // Middlewares
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 // Connect to MongoDB
 connectDB()
