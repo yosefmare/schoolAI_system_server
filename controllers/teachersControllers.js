@@ -25,20 +25,18 @@ const login = expressAsyncHandler(async (req, res) => {
 })
 
 const addStudent = expressAsyncHandler(async (req, res) => {
-  const { name, email, password, role, studentClass, grade } = req.body;
+  const { name, password, role, studentClass, grade, lesson} = req.body;
 
-  // Check if the student already exists by email
   const isRegistered = await Student.findOne({ password }); // Fix: Check by email, not password
 
   if (!isRegistered) {
-    // Create a new student
     const newStudent = new Student({
       name,
-      email,
       password,
       role,
       studentClass,
-      grade
+      grade,
+      lesson,
     });
 
     const student = await newStudent.save();

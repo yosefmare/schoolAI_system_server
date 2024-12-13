@@ -4,6 +4,8 @@ import cors from "cors";
 import connectDB from "./config/connectDB.js";
 import teachersRoutes from "./routes/teachersRoutes.js";
 import studentsRoutes from "./routes/studentsRoutes.js";
+import startApolloServer from "./config/apolloServer.js";
+
 
 
 const app = express()
@@ -18,6 +20,9 @@ app.use(express.json());
 
 // Connect to MongoDB
 connectDB()
+
+// Apollo Server
+startApolloServer(app)
 
 // Routes
 app.use("/api/teachers", teachersRoutes )
