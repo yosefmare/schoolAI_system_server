@@ -1,7 +1,7 @@
 import expressAsyncHandler from "express-async-handler";
 import signToken from "../utils/signToken.js";
-import Teacher from "../schemas/teachersSchema.js";
-import Student from "../schemas/studentScheema.js"
+import Teacher from "../models/teachersSchema.js";
+import Student from "../models/studentScheema.js"
 
 const login = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;

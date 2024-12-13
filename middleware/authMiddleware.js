@@ -1,6 +1,6 @@
 import expressAsyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken"
-import Teacher from "../schemas/teachersSchema.js";
+import Teacher from "../models/teachersSchema.js";
 
 
 const protect = expressAsyncHandler(async (req, res, next) => {

@@ -1,4 +1,4 @@
-import Student from "../../schemas/studentScheema.js"
+import Student from "../../../../models/studentScheema.js"
 
 const resolvers = {
   Query: {
