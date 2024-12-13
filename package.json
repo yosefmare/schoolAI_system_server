@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "sever.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
@@ -22,11 +22,15 @@
     "express-async-handler": "^1.2.0",
     "graphql": "^16.9.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.8.3",
+    "mongoose": "^8.9.0",
     "node-cache": "^5.1.2",
     "redis": "^4.7.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
+  },
+  "overrides": {
+    "tr46": "^5.0.0",
+    "whatwg-url": "^14.1.0"
   }
 }
