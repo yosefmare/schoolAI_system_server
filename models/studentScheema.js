@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import bcrypt from "bcrypt";
 
 const StudentSchema = new Schema({
   name: { type: String, required: true },
@@ -9,4 +10,15 @@ const StudentSchema = new Schema({
   grade: { type: Number, default: 0 },
 });
 
+StudentSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 export default model("student", StudentSchema)
