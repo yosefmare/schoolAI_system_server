@@ -47,9 +47,9 @@ const addStudent = expressAsyncHandler(async (req, res) => {
         _id: student._id,
         name: student.name,
         studentClass: student.studentClass,
+        token: signToken(student._id, student.role) 
       }
     });
-    res.cookie("token", signToken(student._id, student.role)  )
   } else {
     res.status(409).json({ message: "Student already exists" });
   }
